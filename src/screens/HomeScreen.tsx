@@ -25,7 +25,7 @@ export default () => {
         <TopCategories
           data={
             [
-              { icon: Dental, title: "Dental", onPress: () => navigation.navigate("category" as never)},
+              { icon: Dental, title: "Dental", onPress: () => navigation.navigate("Category" as never)},
               { icon: Wellness, title: "Wellness" },
               { icon: Homeo, title: "Homeo" },
               { icon: EyeCare, title: "Eye Care" },
