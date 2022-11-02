@@ -4,7 +4,7 @@ import { ScrollView, Text, View } from "react-native"
 export default (props: {}) => {
   return (
     <ScrollView>
-      <Text>Detail</Text>
+      <Text>Detail Product</Text>
     </ScrollView>
   )
 }

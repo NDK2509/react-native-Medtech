@@ -43,7 +43,6 @@ const Top = (props: { img: ImageSourcePropType }) => {
         <TouchableOpacity>
           <FontAwesomeIcon style={style.textWhite} icon={faBagShopping} size={20} />
         </TouchableOpacity>
-
       </View>
     </View>
   )

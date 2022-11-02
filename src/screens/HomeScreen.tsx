@@ -40,7 +40,7 @@ export default () => {
           ]} />
         </View>
         <DealOfTheDay data={[
-          { img: require("../assets/img/example-products/image137.png"), name: "Omron HEM-8712 BP Monitor", price: 150, votes: 4.5, isSale: true, saleText: "Sale!" },
+          { img: require("../assets/img/example-products/image137.png"), name: "Omron HEM-8712 BP Monitor", price: 150, votes: 4.5, isSale: true, saleText: "Sale!", onPress: () => navigation.navigate("Detail" as never) },
           { img: require("../assets/img/example-products/image138.png"), name: "Omron HEM-8712 BP Monitor", price: 150, votes: 4.5 },
           { img: require("../assets/img/example-products/image21.png"), name: "Omron HEM-8712 BP Monitor", price: 150, votes: 4.5, isSale: true, saleText: "Sale!" },
         ]} />

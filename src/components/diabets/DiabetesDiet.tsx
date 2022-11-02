@@ -33,10 +33,11 @@ const DietElement = (props: DietElementProps) => {
   )
 }
 export default (props: { data: Array<DietElementProps> }) => {
+  const _renderItem = ({ item } : {item: DietElementProps}) => <DietElement {...item} />
   return (
     <View style={{ marginVertical: 20 }}>
       <SmallTitle title="Diabetic Diet" />
-      <FlatList data={props.data} renderItem={({ item }) => <DietElement {...item} />} horizontal={true} showsHorizontalScrollIndicator={false} />
+      <FlatList data={props.data} renderItem={_renderItem} horizontal={true} showsHorizontalScrollIndicator={false} />
     </View>
   )
 }

@@ -19,15 +19,15 @@ export default () => {
     <View>
       <Text style={style.title}>My profile</Text>
       <View style={style.main}>
-        <BaseInfo name="Nguyen Dang Ky" />
+        <BaseInfo name="Nguyen Dang Ky" img={require("../assets/img/profile-example.png")}/>
         <ProfileOptions
           data={[
-            { icon: faBarsStaggered, label: "Private Account", onPress: () => { } },
-            { icon: faStethoscope, label: "My Consults", onPress: () => { } },
-            { icon: faFileInvoice, label: "My Orders", onPress: () => { } },
-            { icon: faClock, label: "Billings", onPress: () => { } },
-            { icon: faCircleQuestion, label: "FAQ", onPress: () => { } },
-            { icon: faGear, label: "Settings", onPress: () => { } }
+            { icon: faBarsStaggered, label: "Private Account" },
+            { icon: faStethoscope, label: "My Consults" },
+            { icon: faFileInvoice, label: "My Orders" },
+            { icon: faClock, label: "Billings" },
+            { icon: faCircleQuestion, label: "FAQ" },
+            { icon: faGear, label: "Settings" }
           ]}
         />
       </View>

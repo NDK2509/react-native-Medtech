@@ -1,8 +1,8 @@
-import { Image, StyleSheet, Text, View } from "react-native"
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native"
 
 interface BaseInfoProps {
-  img?: string,
-  name?: string
+  img: ImageSourcePropType,
+  name: string
 }
 const style = StyleSheet.create({
   container: {
@@ -24,7 +24,7 @@ const style = StyleSheet.create({
 export default (props: BaseInfoProps) => {
   return (
     <View style={style.container}>
-      <Image source={require("../../assets/img/profile-example.png")} style={style.img} />
+      <Image source={props.img} style={style.img} />
       <View>
         <Text style={style.greeting}>Hi, {props.name}!</Text>
         <Text>Welcome to MedTech</Text>

@@ -44,7 +44,8 @@ const style = StyleSheet.create({
   }
 })
 export default ({ data }: { data: Array<ProfileOptionProps> }) => {
+  const _renderItem = ({ item } : {item: ProfileOptionProps}) => <Option icon={item.icon} label={item.label} onPress={item.onPress} />
   return (
-    <FlatList style={style.container} data={data} renderItem={({ item }) => <Option icon={item.icon} label={item.label} onPress={item.onPress} />} />
+    <FlatList style={style.container} data={data} renderItem={_renderItem} />
   )
 }

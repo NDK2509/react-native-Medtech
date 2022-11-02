@@ -32,10 +32,11 @@ const Brand = (props: BrandProps) => {
   )
 }
 export default (props: {data: Array<BrandProps>}) => {
+  const _renderItem = ({item}: {item: BrandProps}) => <Brand {...item} />
   return (
     <View style={{marginVertical: 20}}>
       <SmallTitle title="Featured Brands" />
-      <FlatList data={props.data} renderItem={({item}) => <Brand {...item} /> } horizontal={true} showsHorizontalScrollIndicator={false} />
+      <FlatList data={props.data} renderItem={_renderItem } horizontal={true} showsHorizontalScrollIndicator={false} />
     </View>
   )
 }

@@ -41,11 +41,17 @@ const CategoryElement = (props: CategoryElementProps) => {
   )
 }
 
-export default (props: { data: Array<{ icon: any, title: string, onPress?: CallBackWithoutParams }>, colors: Array<string> }) => {
+interface CategoriesArrEle { 
+  icon: any, 
+  title: string, 
+  onPress?: CallBackWithoutParams 
+}
+export default (props: { data: Array<CategoriesArrEle>, colors: Array<string> }) => {
+  const _renderItem = ({ item, index }: { item: CategoriesArrEle, index: number }) => <CategoryElement {...item} color={props.colors[index]} />
   return (
     <View style={style.container}>
       <SmallTitle title="Top Categories" />
-      <FlatList data={props.data} renderItem={({ item, index }) => <CategoryElement {...item} color={props.colors[index]} />} horizontal={true} showsHorizontalScrollIndicator={false} />
+      <FlatList data={props.data} renderItem={_renderItem} horizontal={true} showsHorizontalScrollIndicator={false} />
     </View>
   )
 }
