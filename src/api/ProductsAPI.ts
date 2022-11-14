@@ -1,4 +1,5 @@
-import http from './http';
+import Log from '../utils/Log';
+import axiosClient from './axiosClient';
 
 export interface ProductType {
   id: string,
@@ -14,19 +15,19 @@ export interface ProductType {
 const getAllProducts = async (
   handler: (productsList: Array<ProductType>) => void,
 ) => {
-  const result = await http('products', 'GET');
-  if (result.data.length !== 0) {
-    handler(result.data as Array<ProductType>);
-  }
+    const result = await axiosClient.get<Array<ProductType>>('products');
+    if (result.length !== 0) {
+      handler(result);
+    }
 };
 
 const getProductById = async (
   id: string,
   handler: (product: ProductType) => void,
 ) => {
-  const result = await http(`products/${id}`, 'GET');
-  if (result.data !== null) {
-    handler(result.data as ProductType);
+  const result = await axiosClient.get<ProductType>(`products/${id}`);
+  if (result ) {
+    handler(result);
   }
 };
 

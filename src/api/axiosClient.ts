@@ -1,20 +1,22 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import http from "./http";
 
-const config: AxiosRequestConfig = {
-  baseURL: 'https://636df78fb567eed48ace8403.mockapi.io/',
+const defaultParams = {}
+const axiosClient = {
+  get: <T = any>(endpoint: string, params: Object = defaultParams) => {
+    return http.get<any, T>(endpoint, {params});
+  },
+  request: <T = any>(
+    endpoint: string,
+    method: 'POST' | 'PUT' | 'DELETE',
+    data?: any,
+  ) => {
+    return http.request<any, T>({
+      url: endpoint,
+      method,
+      data,
+    });
+  },
 };
-
-const axiosClient = (
-  endpoint: string,
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE',
-  data?: any,
-) => {
-  return axios.request({
-    ...config,
-    url: endpoint,
-    method,
-    data,
-  });
-};
+;
 export default axiosClient;
 
