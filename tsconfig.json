@@ -2,10 +2,14 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
-    "typeRoots": ["/global.d.ts"],
+    // "typeRoots": ["/global.d.ts"],
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
       /* Completeness */
-    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,       
+    "types": ["jest", "node"]                          /* Skip type checking all .d.ts files. */
   },
   // "files": ["/global.d.ts"]
+  "exclude": [
+    "/__tests__/"
+  ]
 }
