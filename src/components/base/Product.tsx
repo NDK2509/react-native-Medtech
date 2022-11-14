@@ -1,18 +1,9 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
-import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { ProductType } from "../../api/ProductsAPI"
 import colors from "../../theme/colors"
-import { CallBackWithoutParams } from "../../utils/types"
 
-export interface ProductProps {
-  img: ImageSourcePropType,
-  name: string,
-  price: number,
-  votes?: number,
-  isSale?: boolean,
-  saleText?: string,
-  onPress?: CallBackWithoutParams
-}
 const style = StyleSheet.create({
   container: {
     position: "relative",
@@ -21,17 +12,26 @@ const style = StyleSheet.create({
     flexDirection: "column",
     padding: 20,
     borderRadius: 20,
-    borderWidth: 1, 
+    borderWidth: 1,
     overflow: "hidden",
     marginHorizontal: 10,
     marginVertical: "2%"
   },
   img: {
     height: "60%",
+    width: "100%",
     resizeMode: "cover",
     alignSelf: "center"
   },
   content: {
+  },
+  name: {
+    marginVertical: 10,
+    minHeight: 40
+  },
+  price: {
+    marginTop: 10, 
+    color: "red"
   },
   sale: {
     position: "absolute",
@@ -46,7 +46,7 @@ const style = StyleSheet.create({
     justifyContent: "center"
   },
   saleText: {
-    
+
   },
   votes: {
     flexDirection: "row",
@@ -65,7 +65,7 @@ const style = StyleSheet.create({
   }
 
 })
-export default (props: ProductProps) => {
+export default (props: ProductType) => {
   return (
     <TouchableOpacity onPress={props.onPress} style={style.container}>
       {props.isSale &&
@@ -73,18 +73,17 @@ export default (props: ProductProps) => {
           <Text style={[style.textWhite, style.saleText]}>{props.saleText}</Text>
         </View>
       }
-      <Image source={props.img} style={style.img} />
+      <Image source={{ uri: props.img }} style={style.img} />
       <View style={style.content}>
-        <Text>{props.name}</Text>
-        <Text style={{marginTop: 10, color: "red"}}>$ {props.price}</Text>
+        <Text style={style.name} numberOfLines={2}>{props.name}</Text>
+        <Text style={style.price}>$ {props.price}</Text>
       </View>
-      {props.votes &&
+      {props.rating &&
         <View style={style.votes}>
           <FontAwesomeIcon icon={faStar} color="white" />
-          <Text style={style.textWhite}>{props.votes}</Text>
+          <Text style={style.textWhite}>{props.rating}</Text>
         </View>
       }
-
     </TouchableOpacity>
   )
 }
